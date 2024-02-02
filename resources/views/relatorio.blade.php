@@ -34,11 +34,10 @@
                     target="_blank">iead-pvh@hotmail.com</a> </p>
             <p><br></p>
             <div class="container" style="text-align: center;">
-                <h2>Setor:______ <span>&nbsp; </span>Congregação:______________________________
+                <h2>Setor: 18 <span>&nbsp; </span>Congregação: União da Vitória 1
                     <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
                 </h2>
-                <h2>Período_____<span>&nbsp;&nbsp; </span>Á ____<span>&nbsp;&nbsp; </span>de
-                    <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>/20__<span>&nbsp; </span> </h2>
+                <h2>Período {{ $dt_ini }} <span>&nbsp; </span>Á &nbsp;{{ $dt_fim }} <span>&nbsp;&nbsp; </h2>
             </div>
         </div>
         <p><br></p>
@@ -93,7 +92,7 @@
             </td>
             <td
                 style="width:56pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
-                <p style="text-indent: 0pt;text-align: left;"><br />{{ $recibo1->data }}</p>
+                <p style="text-indent: 0pt;text-align: left;"><br />{{ $recibo1->data}}</p>
             </td>
             <td
                 style="width:258pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
@@ -146,7 +145,6 @@
             style="width:66pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
             <p class="s4" style="padding-top: 1pt;padding-left: 6pt;text-indent: 0pt;text-align: left;"> DESCRIÇÃO
             </p>
-            style="width:56pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
         </td>
         <td
             <p class="s4" style="padding-top: 1pt;padding-left: 15pt;text-indent: 0pt;text-align: left;">DATA </p>
@@ -174,7 +172,7 @@
             </td>
             <td
                 style="width:56pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
-                <p style="text-indent: 0pt;text-align: left;"><br />{{ $recibo2->data }}</p>
+                <p style="text-indent: 0pt;text-align: left;"><br /> {{ $recibo2->data }}</p>
             </td>
             <td
                 style="width:258pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
@@ -246,8 +244,10 @@
             </td>
             <td
                 style="text-align:center width:56pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
-                <p style="text-indent: 0pt;text-align: left;"><br />{{ $saida->data }}</p>
-            </td>
+                <p style="text-indent: 0pt; text-align: left;">
+                    <br />{{ $saida->data }}
+                </p>
+                            </td>
             <td
                 style=" text-align:center width:258pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
                 <p style="text-indent: 0pt;text-align: left;"><br />{{ $saida->nome }}</p>
