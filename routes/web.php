@@ -7,7 +7,7 @@ use App\Http\Controllers\ReciboSaidaController;
 
 Route::get('recibo/create', [ReciboController::class, 'create'])->name('recibos.create');
 Route::post('recibo/store', [ReciboController::class, 'store'])->name('recibos.store');
-Route::get('recibo/index', [ReciboController::class, 'index'])->name('recibos.index');
+Route::get('/', [ReciboController::class, 'index'])->name('recibos.index');
 Route::get('recibo/edit/{id}', [ReciboController::class, 'edit'])->name('recibos.edit');
 Route::post('recibo/update/{id}', [ReciboController::class, 'update'])->name('recibos.update');
 Route::get('recibo/destroy/{id}', [ReciboController::class, 'destroy'])->name('recibos.destroy');
