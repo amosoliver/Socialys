@@ -28,20 +28,47 @@
     }
 
     .identificacao {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        width: 100%;
-    }
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 110%;
+    font-size: 25px; /* Adjust the font size as needed */
+}
+
 
     p {
         display: inline;
-        /* Isso faz com que o parágrafo se comporte como um elemento inline e fique na mesma linha */
     }
 
     h3 {
         display: inline;
         /* Isso faz com que o h3 se comporte como um elemento inline e fique na mesma linha */
+    }
+
+    section {
+        margin-top: 20px;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        border: 2px solid #000;
+        /* Cor e largura da borda externa da tabela */
+    }
+
+    th,
+    td {
+        border: 1px solid #000;
+        /* Cor e largura da borda interna das células */
+        padding: 8px;
+        /* Espaçamento interno das células */
+        text-align: center;
+        /* Alinhamento do texto */
+    }
+
+    th {
+        background-color: #f2f2f2;
+        /* Cor de fundo do cabeçalho da tabela */
     }
 </style>
 
@@ -92,10 +119,67 @@
 
 
         </section>
+        <section>
+            <table>
+                <thead>
+                    <tr>
+                        <th>N° do recibo</th>
+                        <th>Descrição</th>
+                        <th>Data</th>
+                        <th>Nome</th>
+                        <th>Valor</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach ($recibosTipo1 as $recibo1 )
+                    <tr>
+                        <td>{{ $recibo1->numero_recibo }}</td>
+                        <td>{{ $recibo1->descricao }}</td>
+                        <td>{{ $recibo1->data }}</td>
+                        <td>{{ $recibo1->nome }}</td>
+                        <td>{{ $recibo1->valor }}</td>
+                    </tr>
+                    @endforeach
+
+                    @foreach ($recibosTipo2 as $recibo2 )
+                    <tr>
+                        <td>{{ $recibo2->numero_recibo }}</td>
+                        <td>{{ $recibo2->descricao }}</td>
+                        <td>{{ $recibo2->data }}</td>
+                        <td>{{ $recibo2->nome }}</td>
+                        <td>{{ $recibo2->valor }}</td>
+                    </tr>
+                    @endforeach
+
+                </tbody>
+            </table>
+        </section>
+
+        <section>
+            <table>
+                <thead>
+                    <tr>
+                        <th>N° do recibo</th>
+                        <th>Data</th>
+                        <th>Nome</th>
+                        <th>Valor</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach ($recibosSaida as $reciboSaida )
+                    <tr>
+                        <td>{{ $reciboSaida->nfc }}</td>
+                        <td>{{ $reciboSaida->data }}</td>
+                        <td>{{ $reciboSaida->nome }}</td>
+                        <td>{{ $reciboSaida->valor }}</td>
+                    </tr>
+                    @endforeach
+                </tbody>
+            </table>
+
+
+        </section>
 
     </div>
 
-
-
-    
 </body>

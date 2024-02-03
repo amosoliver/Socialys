@@ -77,7 +77,7 @@
         <div class="col-12">
             <h2>Saídas</h2>
             <button class="btn btn-primary mb-2">
-                <a href="{{ route('recibos.create') }}" class="text-white text-decoration-none">ADICIONAR</a>
+                <a href="{{ route('recibos.saida.create') }}" class="text-white text-decoration-none">ADICIONAR</a>
             </button>
             <div class="table-responsive">
                 <table class="table table-bordered table-striped">
