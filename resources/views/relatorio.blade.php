@@ -117,17 +117,22 @@
                 <p>{{ $dt_ini }} à {{ $dt_fim }}</p>
             </div>
 
-
         </section>
         <section>
             <table>
                 <thead>
                     <tr>
-                        <th>N° do recibo</th>
-                        <th>Descrição</th>
-                        <th>Data</th>
+                        <th colspan="5">Total de Entradas (Dizimos e Ofertas)</th>
+                    </tr>
+                </thead>
+                <thead>
+
+                    <tr>
+                        <th width="100">N° do recibo</th>
+                        <th width="100">Descrição</th>
+                        <th width="130">Data</th>
                         <th>Nome</th>
-                        <th>Valor</th>
+                        <th width="140">Valor</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -137,20 +142,47 @@
                         <td>{{ $recibo1->descricao }}</td>
                         <td>{{ $recibo1->data }}</td>
                         <td>{{ $recibo1->nome }}</td>
-                        <td>{{ $recibo1->valor }}</td>
+                        <td>{{ number_format($recibo1->valor, 2, ',', '.') }}</td>
                     </tr>
                     @endforeach
 
                     @foreach ($recibosTipo2 as $recibo2 )
                     <tr>
                         <td>{{ $recibo2->numero_recibo }}</td>
-                        <td>{{ $recibo2->descricao }}</td>
                         <td>{{ $recibo2->data }}</td>
                         <td>{{ $recibo2->nome }}</td>
-                        <td>{{ $recibo2->valor }}</td>
+                        <td>{{ $recibo2->descricao }}</td>
+                        <td>{{ number_format($recibo2->valor, 2, ',', '.') }}</td>
                     </tr>
                     @endforeach
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <th colspan="4">Total</th>
+                        <td>{{ number_format($recibosTipo1Total + $recibosTipo2Total, 2, ',', '.') }}</td>
+                    </tr>
+                </tfoot>
+            </table>
+        </section>
 
+        <section>
+            <table style="width: 50%; margin-left: auto; margin-right: 0;">
+                <tbody>
+                    <tr>
+                        <th style="text-align: left;">Total de Entradas</th>
+                        <td style="text-align: right;">{{ number_format($recibosTipo1Total + $recibosTipo2Total, 2, ',', '.') }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section>
+            <table style="width: 50%; margin-left: auto; margin-right: 0;">
+                <tbody>
+                    <tr>
+                        <th style="text-align: left;">SALDO DOS 30%</th>
+                        <td style="text-align: right;">{{ number_format($recibosTipo1Total * 0.3, 2, ',', '.') }}</td>
+                    </tr>
                 </tbody>
             </table>
         </section>
@@ -159,27 +191,81 @@
             <table>
                 <thead>
                     <tr>
+                        <th colspan="5">SAÍDAS</th>
+                    </tr>
+                </thead>
+                <thead>
+                    <tr>
                         <th>N° do recibo</th>
                         <th>Data</th>
                         <th>Nome</th>
-                        <th>Valor</th>
+                        <th width="140">Valor</th>
                     </tr>
                 </thead>
                 <tbody>
                     @foreach ($recibosSaida as $reciboSaida )
                     <tr>
-                        <td>{{ $reciboSaida->nfc }}</td>
-                        <td>{{ $reciboSaida->data }}</td>
+                        <td width="200" >{{ $reciboSaida->nfc }}</td>
+                        <td width="130">{{ $reciboSaida->data }}</td>
                         <td>{{ $reciboSaida->nome }}</td>
-                        <td>{{ $reciboSaida->valor }}</td>
+                        <td>{{ number_format($reciboSaida->valor, 2, ',', '.') }}</td>
                     </tr>
                     @endforeach
                 </tbody>
+                <tfoot style="text-align: right;">
+                    <tr>
+                        <th></th>
+                        <th></th>
+                        <th style="text-align: left;">Total de Saidas</th>
+                        <td>{{ number_format($recibosSaidaTotal, 2, ',', '.') }}</td>
+                    </tr>
+                </tfoot>
+
+
             </table>
-
-
         </section>
 
+        <section>
+            <table style="width: 50%; margin-left: auto; margin-right: 0;">
+                <tbody>
+                    <tr>
+                        <th style="text-align: left;">Total de Saidas</th>
+                        <td style="text-align: right;">{{ number_format($recibosSaidaTotal, 2, ',', '.') }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section>
+            <table style="width: 50%; margin-left: auto; margin-right: 0;">
+                <tbody>
+                    <tr>
+                        <th style="text-align: left;">SALDO DOS 30%</th>
+                        <td style="text-align: right;">{{ number_format(($recibosTipo1Total * 0.3) - $recibosSaidaTotal , 2, ',', '.') }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+
+        <section>
+            <table style="width: 50%; margin-left: auto; margin-right: 0;">
+                <tbody>
+                    <tr>
+                        <th style="text-align: left;">Total de Entradas</th>
+                        <td style="text-align: right;">{{ number_format($recibosTipo1Total + $recibosTipo2Total, 2, ',', '.') }}</td>
+                    </tr>
+                    <tr>
+                        <th style="text-align: left;">Total de Saídas</th>
+                        <td style="text-align: right;">{{ number_format($recibosSaidaTotal, 2, ',', '.') }}</td>
+                    </tr>
+                    <tr>
+                        <th style="text-align: left;">Total Geral (Entradas - Saídas)</th>
+                        <td style="text-align: right;">{{ number_format(($recibosTipo1Total + $recibosTipo2Total) - $recibosSaidaTotal, 2, ',', '.') }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
     </div>
 
 </body>

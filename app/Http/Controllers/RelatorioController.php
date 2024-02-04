@@ -50,7 +50,6 @@ $v['dt_fim'] = $dt_fim;
 
         $v['recibosTipo1Total'] = $v['recibosTipo1']->sum('valor');
         $v['recibosTipo2Total'] = $v['recibosTipo2']->sum('valor');
-
         $v['recibosSaidaTotal'] = $v['recibosSaida']->sum('valor');
 
 
