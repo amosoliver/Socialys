@@ -48,11 +48,6 @@ $v['dt_fim'] = $dt_fim;
         ->whereBetween('data', [$params['dt_ini'], $params['dt_fim']])
         ->get();
 
-        $v['recibosTipo1Total'] = $v['recibosTipo1']->sum('valor');
-        $v['recibosTipo2Total'] = $v['recibosTipo2']->sum('valor');
-        $v['recibosSaidaTotal'] = $v['recibosSaida']->sum('valor');
-
-
         return view('relatorio', $v);
     }
 
