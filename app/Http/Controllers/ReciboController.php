@@ -4,11 +4,15 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Recibo;
-use App\Models\ReciboSaida; 
+use App\Models\ReciboSaida;
 
 
 class ReciboController extends Controller
 {
+    public function home() {
+        return view('home');
+    }
+
     public function index() {
         $v['recibos'] = Recibo::latest()->get();
         $v['recibosSaida'] = ReciboSaida::latest()->get();
