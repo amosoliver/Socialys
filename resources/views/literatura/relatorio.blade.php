@@ -33,7 +33,13 @@
                                     <td>{{ $cong->nome }}</td>
                                     <td>{{ $cong->valor_total }}</td>
                                     <td>{{ $cong->valor_pago }}</td>
-                                    <td class="{{ $cong->valor_pago / $cong->valor_total >= 0.99 ? 'bg-success' : ($cong->valor_pago / $cong->valor_total > 0.5 ? 'bg-warning' : 'bg-danger') }}" >{{ $cong->valor_pagar }}</td>
+                                    <td class="{{ $cong->valor_pago / $cong->valor_total >= 0.99 ? 'bg-success' : ($cong->valor_pago / $cong->valor_total > 0.5 ? 'bg-warning' : 'bg-danger') }}" >
+                                        @if ($cong->valor_pagar <= 0)
+                                            PAGO
+                                        @else
+                                            {{ $cong->valor_pagar }}
+                                        @endif
+                                    </td>
                                 </tr>
                             @endforeach
                         </tbody>

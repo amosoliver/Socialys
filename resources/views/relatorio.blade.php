@@ -40,24 +40,25 @@
     }
 
     .assinaturas {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 20px;
-}
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 20px;
+    }
 
-.assinatura {
-    flex-grow: 1;
-    text-align: center;
-}
+    .assinatura {
+        flex-grow: 1;
+        text-align: center;
+    }
 
-.linha {
-    border-top: 1px solid black;
-    margin-bottom: 5px;
-}
+    .linha {
+        border-top: 1px solid black;
+        margin-bottom: 5px;
+    }
 
-.assinatura-inferior {
-    margin-top: 80px; /* Ajuste a margem conforme necessário */
-}
+    .assinatura-inferior {
+        margin-top: 80px;
+        /* Ajuste a margem conforme necessário */
+    }
 
 
     header>section>h3,
@@ -382,7 +383,7 @@
                 </tbody>
             </table>
         </section>
-        <br> <br>
+        <br> <br> <br> 
         <div class="assinaturas">
             <!-- Primeira assinatura -->
             <div class="assinatura">

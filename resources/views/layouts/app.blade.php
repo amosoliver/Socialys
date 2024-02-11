@@ -56,3 +56,15 @@
             $('#valor').maskMoney({ prefix: 'R$ ', allowNegative: false, thousands: '.', decimal: ',' });
         });
     </script>
+     <script>
+        $(document).ready(function() {
+            $('#descricao_select').change(function() {
+                var descricao = $(this).val();
+                if (descricao === 'Literatura') {
+                    $('#congregacao_select').show();
+                } else {
+                    $('#congregacao_select').hide();
+                }
+            });
+        });
+    </script>
