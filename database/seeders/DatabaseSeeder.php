@@ -16,29 +16,30 @@ class DatabaseSeeder extends Seeder
     {
         // Inserir dados na tabela congregacaos
         DB::table('congregacaos')->insert([
-            ['nome' => 'União da Vitória 1', 'created_at' => '2024-02-10 22:18:28', 'updated_at' => '2024-02-10 22:18:28'],
-            ['nome' => 'União da Vitória 2', 'created_at' => '2024-02-10 22:18:37', 'updated_at' => '2024-02-10 22:18:37'],
-            ['nome' => 'União da Vitória 3', 'created_at' => '2024-02-10 22:18:46', 'updated_at' => '2024-02-10 22:18:46'],
-            ['nome' => 'União da Vitória 4', 'created_at' => '2024-02-10 22:18:54', 'updated_at' => '2024-02-10 22:18:54'],
-            ['nome' => 'União da Vitória 5', 'created_at' => '2024-02-10 22:19:02', 'updated_at' => '2024-02-10 22:19:02'],
-            ['nome' => 'Aponiã 1', 'created_at' => '2024-02-10 22:19:14', 'updated_at' => '2024-02-10 22:19:14'],
-            ['nome' => 'Aponiã 2', 'created_at' => '2024-02-10 22:19:21', 'updated_at' => '2024-02-10 22:19:21'],
-            ['nome' => 'Aponiã 3', 'created_at' => '2024-02-10 22:19:27', 'updated_at' => '2024-02-10 22:19:27'],
-            ['nome' => 'Ipanema', 'created_at' => '2024-02-10 22:19:38', 'updated_at' => '2024-02-10 22:19:38'],
+            ['id' => 1, 'nome' => 'União da Vitória 1', 'created_at' => '2024-02-10 22:18:28', 'updated_at' => '2024-02-10 22:18:28'],
+            ['id' => 2, 'nome' => 'União da Vitória 2', 'created_at' => '2024-02-10 22:18:37', 'updated_at' => '2024-02-10 22:18:37'],
+            ['id' => 3, 'nome' => 'União da Vitória 3', 'created_at' => '2024-02-10 22:18:46', 'updated_at' => '2024-02-10 22:18:46'],
+            ['id' => 4, 'nome' => 'União da Vitória 4', 'created_at' => '2024-02-10 22:18:54', 'updated_at' => '2024-02-10 22:18:54'],
+            ['id' => 5, 'nome' => 'União da Vitória 5', 'created_at' => '2024-02-10 22:19:02', 'updated_at' => '2024-02-10 22:19:02'],
+            ['id' => 6, 'nome' => 'Aponiã 1', 'created_at' => '2024-02-10 22:19:14', 'updated_at' => '2024-02-10 22:19:14'],
+            ['id' => 7, 'nome' => 'Aponiã 2', 'created_at' => '2024-02-10 22:19:21', 'updated_at' => '2024-02-10 22:19:21'],
+            ['id' => 8, 'nome' => 'Aponiã 3', 'created_at' => '2024-02-10 22:19:27', 'updated_at' => '2024-02-10 22:19:27'],
+            ['id' => 9, 'nome' => 'Ipanema', 'created_at' => '2024-02-10 22:19:38', 'updated_at' => '2024-02-10 22:19:38'],
         ]);
 
         // Inserir dados na tabela literaturas
         DB::table('literaturas')->insert([
-            ['valor' => 778.63, 'id_congregacao' => 1, 'created_at' => '2024-02-10 22:20:57', 'updated_at' => '2024-02-10 22:20:57'],
-            ['valor' => 551.54, 'id_congregacao' => 2, 'created_at' => '2024-02-10 22:21:16', 'updated_at' => '2024-02-10 22:21:16'],
-            ['valor' => 584.85, 'id_congregacao' => 3, 'created_at' => '2024-02-10 22:21:42', 'updated_at' => '2024-02-10 22:21:42'],
-            ['valor' => 62.73, 'id_congregacao' => 4, 'created_at' => '2024-02-10 22:22:04', 'updated_at' => '2024-02-10 22:22:04'],
-            ['valor' => 168.97, 'id_congregacao' => 5, 'created_at' => '2024-02-10 22:22:21', 'updated_at' => '2024-02-10 22:22:21'],
-            ['valor' => 280.00, 'id_congregacao' => 6, 'created_at' => '2024-02-10 22:22:50', 'updated_at' => '2024-02-10 22:22:50'],
-            ['valor' => 314.43, 'id_congregacao' => 7, 'created_at' => '2024-02-10 22:23:10', 'updated_at' => '2024-02-10 22:23:10'],
-            ['valor' => 393.41, 'id_congregacao' => 8, 'created_at' => '2024-02-10 22:23:30', 'updated_at' => '2024-02-10 22:23:30'],
-            ['valor' => 41.90, 'id_congregacao' => 9, 'created_at' => '2024-02-10 22:40:49', 'updated_at' => '2024-02-10 22:40:49'],
+            ['id' => 1, 'valor' => 778.63, 'id_congregacao' => 1, 'created_at' => '2024-02-10 22:20:57', 'updated_at' => '2024-02-10 22:20:57'],
+            ['id' => 2, 'valor' => 551.54, 'id_congregacao' => 2, 'created_at' => '2024-02-10 22:21:16', 'updated_at' => '2024-02-10 22:21:16'],
+            ['id' => 3, 'valor' => 584.85, 'id_congregacao' => 3, 'created_at' => '2024-02-10 22:21:42', 'updated_at' => '2024-02-10 22:21:42'],
+            ['id' => 4, 'valor' => 62.73, 'id_congregacao' => 4, 'created_at' => '2024-02-10 22:22:04', 'updated_at' => '2024-02-10 22:22:04'],
+            ['id' => 5, 'valor' => 168.97, 'id_congregacao' => 5, 'created_at' => '2024-02-10 22:22:21', 'updated_at' => '2024-02-10 22:22:21'],
+            ['id' => 6, 'valor' => 280.00, 'id_congregacao' => 6, 'created_at' => '2024-02-10 22:22:50', 'updated_at' => '2024-02-10 22:22:50'],
+            ['id' => 7, 'valor' => 314.43, 'id_congregacao' => 7, 'created_at' => '2024-02-10 22:23:10', 'updated_at' => '2024-02-10 22:23:10'],
+            ['id' => 8, 'valor' => 393.41, 'id_congregacao' => 8, 'created_at' => '2024-02-10 22:23:30', 'updated_at' => '2024-02-10 22:23:30'],
+            ['id' => 9, 'valor' => 41.90, 'id_congregacao' => 9, 'created_at' => '2024-02-10 22:40:49', 'updated_at' => '2024-02-10 22:40:49'],
         ]);
+
 
         // Inserir dados na tabela recibos
         DB::table('recibos')->insert([
