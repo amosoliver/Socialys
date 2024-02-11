@@ -4,11 +4,17 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Recibo;
-use App\Models\ReciboSaida; 
+use App\Models\Congregacao;
+
+use App\Models\ReciboSaida;
 
 
 class ReciboController extends Controller
 {
+    public function home() {
+        return view('home');
+    }
+
     public function index() {
         $v['recibos'] = Recibo::latest()->get();
         $v['recibosSaida'] = ReciboSaida::latest()->get();
@@ -16,7 +22,8 @@ class ReciboController extends Controller
     }
 
     public function create() {
-        $v['recibo'] = Recibo::latest()->get();
+        $v['congregacoes'] = Congregacao::selectList();
+
 
 return view('entrada.create', $v);
     }
@@ -29,15 +36,16 @@ return view('entrada.create', $v);
         $recibo->descricao = $request->input('descricao');
         $recibo->data = $request->input('data');
         $recibo->nome = $request->input('nome');
+        $recibo->id_congregacao = $request->input('id_congregacao');
         $recibo->valor = $request->input('valor');
 
     // Verificar se o recibo foi criado com sucesso
     if ($recibo->save()) {
         // Se sim, adicionar uma mensagem de sucesso
-        return redirect()->route('recibos.index')->with('success', 'Recibo criado com sucesso!');
+        return redirect()->back()->with('success', 'Recibo criado com sucesso!');
     } else {
         // Se não, adicionar uma mensagem de erro
-        return redirect()->route('recibos.index')->with('error', 'Erro ao criar o recibo. Por favor, tente novamente.');
+        return redirect()->back()->with('error', 'Erro ao criar o recibo. Por favor, tente novamente.');
     }
 }
 

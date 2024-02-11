@@ -39,6 +39,28 @@
         min-width: 800px !important;
     }
 
+    .assinaturas {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 20px;
+    }
+
+    .assinatura {
+        flex-grow: 1;
+        text-align: center;
+    }
+
+    .linha {
+        border-top: 1px solid black;
+        margin-bottom: 5px;
+    }
+
+    .assinatura-inferior {
+        margin-top: 80px;
+        /* Ajuste a margem conforme necessário */
+    }
+
+
     header>section>h3,
     header>section>p {
         display: flex;
@@ -75,31 +97,48 @@
     }
 
     table {
-    width: 100%;
-    border-collapse: collapse;
-    border: 2px solid #000;
-    /* Cor e largura da borda externa da tabela */
-}
+        width: 100%;
+        border-collapse: collapse;
+        border: 2px solid #000;
+        /* Cor e largura da borda externa da tabela */
+    }
 
-th,
-td {
-    border: 1px solid #000;
-    /* Cor e largura da borda interna das células */
-    padding: 8px;
-    /* Espaçamento interno das células */
-    text-align: center;
-    /* Alinhamento do texto */
-}
+    th,
+    td {
+        border: 1px solid #000;
+        /* Cor e largura da borda interna das células */
+        padding: 8px;
+        /* Espaçamento interno das células */
+        text-align: center;
+        /* Alinhamento do texto */
+    }
 
-th {
-    background-color: #857474;
-    /* Cor de fundo do cabeçalho da tabela */
-    color: #fff; /* Cor do texto (branco) */
-    font-size: 18px; /* Tamanho da fonte desejado, ajuste conforme necessário */
-}
-
-
+    th {
+        background-color: #7a7171;
+        /* Cor de fundo do cabeçalho da tabela */
+        color: #000000;
+        /* Cor do texto (branco) */
+        font-size: 18px;
+        /* Tamanho da fonte desejado, ajuste conforme necessário */
+    }
 </style>
+@php
+
+    $recibosTipo1Total = 0;
+    $recibosTipo2Total = 0;
+    $recibosSaidaTotal = 0;
+
+    foreach ($recibosTipo1 as $recibo1) {
+        $recibosTipo1Total += $recibo1['valor'];
+    }
+    foreach ($recibosTipo2 as $recibo2) {
+        $recibosTipo2Total += $recibo2['valor'];
+    }
+    foreach ($recibosSaida as $reciboSaida) {
+        $recibosSaidaTotal += $reciboSaida['valor'];
+    }
+
+@endphp
 
 <body>
     <div class="conteudo">
@@ -230,7 +269,7 @@ th {
                             <td>{{ $recibo2->descricao }}</td>
                             <td>{{ $recibo2->data }}</td>
                             <td>{{ $recibo2->nome }}</td>
-                            <td>{{ number_format($recibo1->valor, 2, ',', '.') }}</td>
+                            <td>{{ number_format($recibo2->valor, 2, ',', '.') }}</td>
                         </tr>
                     @endforeach
                 </tbody>
@@ -344,6 +383,25 @@ th {
                 </tbody>
             </table>
         </section>
+        <br> <br> <br> 
+        <div class="assinaturas">
+            <!-- Primeira assinatura -->
+            <div class="assinatura">
+                <div class="linha"></div> <!-- Linha -->
+                <div class="nome">Arrecadador</div> <!-- Nome -->
+            </div>
+            <!-- Segunda assinatura -->
+            <div class="assinatura assinatura-inferior">
+                <div class="linha"></div> <!-- Linha -->
+                <div class="nome">Supervisor</div> <!-- Nome -->
+            </div>
+            <!-- Terceira assinatura -->
+            <div class="assinatura">
+                <div class="linha"></div> <!-- Linha -->
+                <div class="nome">Dirigente</div> <!-- Nome -->
+            </div>
+        </div>
+
     </div>
 
 </body>
