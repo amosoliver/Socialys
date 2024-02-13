@@ -8,9 +8,20 @@ use App\Http\Controllers\ReciboSaidaController;
 
 Route::get('/', [ReciboController::class, 'home'])->name('recibos.home');
 
-Route::get('user/login' , [\App\Http\Controllers\AuthController::class, 'login'])->name('user.login');
-Route::post('user/autenticar' , [\App\Http\Controllers\AuthController::class, 'autenticar'])->name('user.autenticar');
-Route::get('user/logout' , [\App\Http\Controllers\AuthController::class, 'logout'])->name('user.logout');
+Route::get('user/create' , [\App\Http\Controllers\AuthController::class, 'create'])
+    ->name('user.create');
+Route::post('user/store' , [\App\Http\Controllers\AuthController::class, 'store'])
+    ->name('user.store');
+Route::get('user/login' , [\App\Http\Controllers\AuthController::class, 'login'])
+    ->name('user.login');
+Route::post('user/autenticar' , [\App\Http\Controllers\AuthController::class, 'autenticar'])
+    ->name('user.autenticar');
+    Route::get('user/logout' , [\App\Http\Controllers\AuthController::class, 'logout'])
+    ->name('user.logout');
+
+
+
+
 
 Route::get('recibo/create', [ReciboController::class, 'create'])->name('recibos.create');
 Route::post('recibo/store', [ReciboController::class, 'store'])->name('recibos.store');

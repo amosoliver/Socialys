@@ -1908,3 +1908,15 @@ PHP Warning:  Module "gd" is already loaded in Unknown on line 0
   2024-02-05 15:13:42 /favicon.ico ...................................... ~ 0s
   2024-02-05 15:14:02 ................................................... ~ 0s
   2024-02-05 15:14:02 /favicon.ico ...................................... ~ 0s
+PHP Warning:  Module "gd" is already loaded in Unknown on line 0
+
+   WARN  PHP Warning: Module "gd" is already loaded in Unknown on line 0.  
+
+   INFO  Server running on [http://0.0.0.0:8000].  
+
+  Press Ctrl+C to stop the server
+
+  2024-02-12 21:32:44 ................................................... ~ 1s
+  2024-02-12 21:32:46 /favicon.ico ...................................... ~ 0s
+  2024-02-12 21:32:48 ................................................... ~ 1s
+  2024-02-12 21:32:49 /favicon.ico ...................................... ~ 0s

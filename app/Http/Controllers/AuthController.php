@@ -24,13 +24,12 @@ class AuthController extends Controller
         return view('user.create', $v);
     }
 
-    public function store(LoginRequest $req)
+    public function store(Request $req)
     {
         try {
             $user = $this->user->newInstance();
-            $user->name = $req->input('name');
-            $user->email = $req->input('email');
-            $user->password = Hash::make($req->input('password'));
+            $user->username = $req->input('username');
+            $user->senha = Hash::make($req->input('senha'));
             if ($user->save()) {
                 return redirect()->route('user.login')
                     ->with('success', 'Usuário registrado com sucesso!');
@@ -51,11 +50,19 @@ class AuthController extends Controller
 
     public function autenticar(Request $request)
     {
-        $credentials = $request->validate([
-            'username' => ['required', 'username'],
-            'senha' => ['required'],
+        // Extracting username and password from the request
+        $credentials = [
+            'username' => $request->input('username'),
+            'password' => $request->input('senha'), // Aqui você precisa usar 'password' em vez de 'senha'
+        ];
+
+        // Validating credentials
+        $request->validate([
+            'username' => ['required', 'string'],
+            'senha' => ['required', 'string'],
         ]);
 
+        // Attempting authentication
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
 
@@ -63,9 +70,11 @@ class AuthController extends Controller
         }
 
         return back()->withErrors([
-            'email' => 'Credenciais inválidas.',
+            'username' => 'Credenciais inválidas.',
         ]);
     }
+
+
 
     public function logout()
     {
