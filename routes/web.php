@@ -34,6 +34,25 @@ Route::post('recibo/saida/update/{id}', [ReciboSaidaController::class, 'update']
 Route::get('recibo/saida/destroy/{id}', [ReciboSaidaController::class, 'destroy'])->name('recibos.saida.destroy');
 
 Route::get('relatorio', [RelatorioController::class, 'index'])->name('relatorio');
+Route::get('user/create' , [\App\Http\Controllers\AuthController::class, 'create'])
+    ->name('user.create');
+Route::post('user/store' , [\App\Http\Controllers\AuthController::class, 'store'])
+    ->name('user.store');
+Route::get('user/login' , [\App\Http\Controllers\AuthController::class, 'login'])
+    ->name('user.login');
+Route::post('user/autenticar' , [\App\Http\Controllers\AuthController::class, 'autenticar'])
+    ->name('user.autenticar');
+    Route::get('user/logout' , [\App\Http\Controllers\AuthController::class, 'logout'])
+    ->name('user.logout');
+
+    Route::get('trocar-senha/{id}', [\App\Http\Controllers\AuthController::class, 'trocarSenhaForm'])->name('user.trocar.senha.get');
+
+    Route::post('/trocar-senha/{id}', [\App\Http\Controllers\AuthController::class,'trocarSenha'])->name('user.trocar.senha.post');
+
+    Route::get('enviar-email', [\App\Http\Controllers\AuthController::class,'enviarEmailForm'])->name('user.enviar_email');
+
+    Route::post('enviar-email', [\App\Http\Controllers\AuthController::class, 'enviarEmail'])->name('user.store_email');
+
 
 
 
