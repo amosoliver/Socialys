@@ -8,7 +8,8 @@ use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Database\Eloquent\Model;
 
-class Recibo extends Model {
+class Recibo extends Model
+{
 
     protected $table = 'recibos';
     public $timestamps = true;

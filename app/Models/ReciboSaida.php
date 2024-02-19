@@ -10,7 +10,8 @@ use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Database\Eloquent\Model;
 
 
-class ReciboSaida extends Model{
+class ReciboSaida extends Model
+{
 
     protected $table = 'recibo_saidas';
     public $timestamps = true;

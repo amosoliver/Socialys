@@ -25,11 +25,13 @@ class LiteraturaController extends Controller
     public function relatorio()
     {
         $congregacoes = Congregacao::select('congregacaos.nome', 'literaturas.valor as valor_total')
-        ->leftJoin('literaturas', 'congregacaos.id', '=', 'literaturas.id_congregacao')
-        ->leftJoin('recibos', function ($join) {
-            $join->on('congregacaos.id', '=', 'recibos.id_congregacao')
-                ->where('recibos.descricao', '=', 'Literatura');
-        })
+            ->leftJoin('literaturas', 'congregacaos.id', '=', 'literaturas.id_congregacao')
+            ->leftJoin(
+                'recibos', function ($join) {
+                    $join->on('congregacaos.id', '=', 'recibos.id_congregacao')
+                        ->where('recibos.descricao', '=', 'Literatura');
+                }
+            )
         ->selectRaw('COALESCE(SUM(recibos.valor), 0) as valor_pago')
         ->selectRaw('(literaturas.valor - COALESCE(SUM(recibos.valor), 0)) as valor_pagar')
         ->groupBy('congregacaos.id', 'congregacaos.nome', 'literaturas.valor')
@@ -56,7 +58,7 @@ class LiteraturaController extends Controller
 
     public function destroy($id)
     {
- $literatura = Literatura::find($id);
+        $literatura = Literatura::find($id);
 
         if ($literatura->destroy($id)) {
             // Se sim, adicionar uma mensagem de sucesso

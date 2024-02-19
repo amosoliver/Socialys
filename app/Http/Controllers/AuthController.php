@@ -51,10 +51,12 @@ class AuthController extends Controller
 
     public function autenticar(Request $request)
     {
-        $credentials = $request->validate([
+        $credentials = $request->validate(
+            [
             'email' => ['required', 'email'],
             'password' => ['required'],
-        ]);
+            ]
+        );
 
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
@@ -62,9 +64,11 @@ class AuthController extends Controller
             return redirect()->intended('/');
         }
 
-        return back()->withErrors([
+        return back()->withErrors(
+            [
             'email' => 'Credenciais inválidas.',
-        ]);
+            ]
+        );
     }
 
     public function logout()

@@ -22,9 +22,11 @@ class CongregacaoController extends Controller
 
     public function store(Request $request)
     {
-        $request->validate([
+        $request->validate(
+            [
             'nome' => 'required',
-        ]);
+            ]
+        );
 
         $cong = new Congregacao;
         $cong->nome = $request->nome;
