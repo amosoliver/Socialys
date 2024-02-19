@@ -1,20 +1,10 @@
 @extends('layouts.app')
 
-@if(session('success'))
-    <div class="alert alert-success">
-        {{ session('success') }}
-    </div>
-@endif
-
-@if(session('error'))
-    <div class="alert alert-danger">
-        {{ session('error') }}
-    </div>
-@endif
 <br><br>
+@section('main')
 
     <div class="container">
-        <h1>Create Congregation</h1>
+        <h1>Criar Congregação</h1>
 
         {!! Form::open(['route' => 'congregacaos.store', 'method' => 'post']) !!}
             <div class="form-group">
@@ -25,3 +15,4 @@
         {!! Form::close() !!}
 
     </div>
+@endsection

@@ -1,15 +1,6 @@
 @extends('layouts.app')
-@if(session('success'))
-    <div class="alert alert-success">
-        {{ session('success') }}
-    </div>
-@endif
+@section('main')
 
-@if(session('error'))
-    <div class="alert alert-danger">
-        {{ session('error') }}
-    </div>
-@endif
 
 <div class="container">
     <h2>Criar Recibo de Saida</h2>
@@ -54,3 +45,4 @@
 
     {!! Form::close() !!}
 </div>
+@endsection

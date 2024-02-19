@@ -42,8 +42,8 @@
                         </li>
                         <li class="nav-item">
                             <div class="nav-item dropdown">
-                                <a class="nav-link dropdown-item" href="#" role="button" data-bs-toggle="dropdown"
-                                    aria-expanded="false">
+                                <a class="nav-link dropdown-item" href="#" role="button"
+                                    data-bs-toggle="dropdown" aria-expanded="false">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
                                         fill="currentColor" class="bi bi-person text-light" viewBox="0 0 16 16">
                                         <path
@@ -72,18 +72,31 @@
                                         <li><a class="dropdown-item" href="{{ route('user.logout') }}">Sair</a></li>
                                     </ul>
                                 @endguest
-                                </ul>
-                            </div>
-                        </li>
                     </ul>
                 </div>
+                </li>
+                </ul>
+            </div>
 
 
             </div>
         </nav>
 
         <main>
-            @yield('main') </main>
+            @if (session('success'))
+                <div class="alert alert-success">
+                    {{ session('success') }}
+                </div>
+            @endif
+
+            @if (session('error'))
+                <div class="alert alert-danger">
+                    {{ session('error') }}
+                </div>
+            @endif
+            @yield('main')
+
+        </main>
         </div>
     </body>
 

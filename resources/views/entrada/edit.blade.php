@@ -1,19 +1,9 @@
 
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 @extends('layouts.app')
+@section('main')
 
-@if(session('success'))
-    <div class="alert alert-success">
-        {{ session('success') }}
-    </div>
-@endif
-
-@if(session('error'))
-    <div class="alert alert-danger">
-        {{ session('error') }}
-    </div>
-@endif
 <br><br>
+
 
     <div class="container justify-content-end">
         <h2>Editar Recibo</h2>
@@ -78,5 +68,5 @@
             {!! Form::submit('Salvar alterações', ['class' => 'btn btn-primary']) !!}
         </div>
 {!! Form::close() !!}
-
+@endsection
 

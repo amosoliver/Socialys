@@ -1,19 +1,6 @@
 @extends('layouts.app')
 
 @section('main')
-    @if (session('success'))
-        <div class="alert alert-success">
-            {{ session('success') }}
-        </div>
-    @endif
-
-    @if (session('error'))
-        <div class="alert alert-danger">
-            {{ session('error') }}
-        </div>
-    @endif
-    <br><br>
-
     <div class="container">
         <h2>Criar Recibo</h2>
 
@@ -35,4 +22,3 @@
 
     </div>
 @endsection
-
