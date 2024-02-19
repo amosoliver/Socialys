@@ -1,5 +1,5 @@
 @extends('layouts.app')
-
+@csrf
 @section('main')
     <div class="container border col-5 col-xs-4 col-sm-4 col-lg-3 col-md-4 mt-5 bg-dark text-light">
         <div class="box mt-2">
