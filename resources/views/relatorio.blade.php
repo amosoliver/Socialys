@@ -175,9 +175,9 @@
         <section class="identificacao">
             <div>
                 <h3>Setor: </h3>
-                <p>18,</p> &nbsp
+                <p>15,</p> &nbsp
                 <h3>Congregação: </h3>
-                <p>União da Vitória 1</p> &nbsp
+                <p>Gamaliel</p> &nbsp
             </div>
             <div>
                 <h3>Período </h3>
@@ -383,7 +383,7 @@
                 </tbody>
             </table>
         </section>
-        <br> <br> <br> 
+        <br> <br> <br>
         <div class="assinaturas">
             <!-- Primeira assinatura -->
             <div class="assinatura">
