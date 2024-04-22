@@ -43,6 +43,8 @@ class LiteraturaController extends Controller
     {
         $literatura = new Literatura;
         $literatura->id_congregacao = $request->id_congregacao;
+        $literatura->ano = $request->ano;
+        $literatura->trimestre = $request->trimestre;
         $literatura->valor = $request->valor;
 
         if ($literatura ->save()) {
