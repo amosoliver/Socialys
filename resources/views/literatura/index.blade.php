@@ -6,7 +6,7 @@
             <div class="col-12">
                 <h2>Literatura</h2>
                 <button class="btn btn-secondary mb-2">
-                    <a href="{{ route('literaturas.relatorio') }}" class="text-white text-decoration-none">RELATÓRIO</a>
+                    <a href="{{ route('literaturas.filtro') }}" class="text-white text-decoration-none">RELATÓRIO</a>
                 </button>
                 <button class="btn btn-primary mb-2">
                     <a href="{{ route('literaturas.create') }}" class="text-white text-decoration-none">ADICIONAR</a>
@@ -16,6 +16,8 @@
                         <thead>
                             <tr>
                                 <th>CONGREGAÇÃO</th>
+                                <th>TRIMESTRE</th>
+                                <th>ANO</th>
                                 <th>VALOR</th>
                                 <th></th>
                             </tr>
@@ -24,10 +26,12 @@
                             @foreach ($literaturas as $literatura)
                                 <tr>
                                     <td>{{ $literatura->congregacao->nome }}</td>
+                                    <td>{{ $literatura->trimestre }}</td>
+                                    <td>{{ $literatura->ano }}</td>
                                     <td>{{ $literatura->valor }}</td>
                                     <td>
                                         <button class="btn btn-outline-danger"><a class="btn-outline-danger"
-                                                href="{{ route('literaturas.destroy', ['id' => $literatura->id]) }}">EXCLUIR</a></button>
+                                         href="{{ route('literaturas.destroy', ['id' => $literatura->id]) }}">EXCLUIR</a></button>
                                     </td>
                                 </tr>
                             @endforeach

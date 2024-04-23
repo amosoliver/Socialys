@@ -22,18 +22,23 @@ class LiteraturaController extends Controller
         return view('literatura.create', compact('congregacoes'));
     }
 
-    public function relatorio()
+    public function relatorio(Request $request)
     {
-        $congregacoes = Congregacao::select('congregacaos.nome', 'literaturas.valor as valor_total')
-            ->leftJoin('literaturas', 'congregacaos.id', '=', 'literaturas.id_congregacao')
-            ->leftJoin(
-                'recibos', function ($join) {
-                    $join->on('congregacaos.id', '=', 'recibos.id_congregacao')
-                        ->where('recibos.descricao', '=', 'Literatura');
-                }
-            )
-        ->selectRaw('COALESCE(SUM(recibos.valor), 0) as valor_pago')
-        ->selectRaw('(literaturas.valor - COALESCE(SUM(recibos.valor), 0)) as valor_pagar')
+        $ano = $request->ano;
+        $trimestre = $request->trimestre;
+
+        $congregacoes = DB::table('congregacaos')
+        ->select('congregacaos.nome',
+                 DB::raw('literaturas.valor AS valor_total'),
+                 DB::raw('COALESCE(SUM(recibos.valor), 0) AS valor_pago'),
+                 DB::raw('(literaturas.valor - COALESCE(SUM(recibos.valor), 0)) AS valor_pagar'))
+        ->leftJoin('literaturas', 'congregacaos.id', '=', 'literaturas.id_congregacao')
+        ->leftJoin('recibos', function ($join) {
+            $join->on('congregacaos.id', '=', 'recibos.id_congregacao')
+                 ->where('recibos.descricao', '=', 'Literatura');
+        })
+        ->where('literaturas.trimestre', '=', $trimestre)
+        ->where('literaturas.ano', '=', $ano)
         ->groupBy('congregacaos.id', 'congregacaos.nome', 'literaturas.valor')
         ->get();
         return view('literatura.relatorio', compact('congregacoes'));
@@ -48,11 +53,9 @@ class LiteraturaController extends Controller
         $literatura->valor = $request->valor;
 
         if ($literatura ->save()) {
-            // Se sim, adicionar uma mensagem de sucesso
-            return redirect()->route('literaturas.index')->with('success', 'literatura .criado com sucesso!');
+            return redirect()->route('literaturas.index')->with('success', 'Literatura criada com sucesso!');
         } else {
-            // Se não, adicionar uma mensagem de erro
-            return redirect()->route('literaturas.index')->with('error', 'Erro ao criar o literatura . Por favor, tente novamente.');
+            return redirect()->route('literaturas.index')->with('error', 'Erro ao criar a literatura. Por favor, tente novamente!');
         }
 
         return redirect()->route('literaturas.index');
@@ -63,10 +66,8 @@ class LiteraturaController extends Controller
         $literatura = Literatura::find($id);
 
         if ($literatura->destroy($id)) {
-            // Se sim, adicionar uma mensagem de sucesso
-            return redirect()->route('recibos.index')->with('success', 'literatura excluido com sucesso!');
+            return redirect()->route('recibos.index')->with('success', 'literatura excluida com sucesso!');
         } else {
-            // Se não, adicionar uma mensagem de erro
             return redirect()->back()->with('error', 'Erro ao excluir o literatura. Por favor, tente novamente.');
         }        return redirect()->route('literaturas.index');
     }
