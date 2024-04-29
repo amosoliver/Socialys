@@ -29,6 +29,7 @@ Route::middleware(['auth', 'check.user'])->group(function () {
     Route::post('literatura/store', [LiteraturaController::class, 'store'])->name('literaturas.store');
     Route::get('literatura/index', [LiteraturaController::class, 'index'])->name('literaturas.index');
     Route::get('literatura/relatorio', [LiteraturaController::class, 'relatorio'])->name('literaturas.relatorio');
+    Route::post('literatura/filtro', [LiteraturaController::class, 'filtro'])->name('literaturas.filtro');
     Route::get('literatura/destroy/{id}', [LiteraturaController::class, 'destroy'])->name('literaturas.destroy');
 
     Route::get('congregacao/create', [CongregacaoController::class, 'create'])->name('congregacaos.create');

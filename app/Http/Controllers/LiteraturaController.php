@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Literatura;
 use App\Models\Congregacao;
+use Illuminate\Support\Facades\DB;
 
 
 class LiteraturaController extends Controller
@@ -42,6 +43,13 @@ class LiteraturaController extends Controller
         ->groupBy('congregacaos.id', 'congregacaos.nome', 'literaturas.valor')
         ->get();
         return view('literatura.relatorio', compact('congregacoes'));
+    }
+
+    public function filtro(Request $request) {
+        if ($request->filled('ano') && $request->filled('trimestre')) {
+            return $this->relatorio($request);
+        }
+        return $this->relatorio($request);
     }
 
     public function store(Request $request)
