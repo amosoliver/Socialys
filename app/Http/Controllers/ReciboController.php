@@ -19,7 +19,6 @@ class ReciboController extends Controller
     public function index()
     {
         $v['recibos'] = Recibo::latest()->get();
-        $v['recibosSaida'] = ReciboSaida::latest()->get();
         return view('entrada.index', $v);
     }
 

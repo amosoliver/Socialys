@@ -7,6 +7,11 @@ use App\Models\ReciboSaida; // Certifique-se de usar o namespace
 
 class ReciboSaidaController extends Controller
 {
+    public function index()
+    {
+        $v['recibosSaida'] = ReciboSaida::latest()->get();
+        return view('saida.index', $v);
+    }
 
     public function create()
     {
@@ -23,12 +28,9 @@ class ReciboSaidaController extends Controller
         $recibo->nome = $request->input('nome');
         $recibo->valor = $request->input('valor');
 
-        // Verificar se o recibo foi criado com sucesso
         if ($recibo->save()) {
-            // Se sim, adicionar uma mensagem de sucesso
             return redirect()->route('recibos.index')->with('success', 'Recibo criado com sucesso!');
         } else {
-            // Se não, adicionar uma mensagem de erro
             return redirect()->route('recibos.index')->with('error', 'Erro ao criar o recibo. Por favor, tente novamente.');
         }
     }
