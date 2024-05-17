@@ -47,7 +47,7 @@
             <div class="modal-content">
                 <!-- Cabeçalho do modal -->
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Meu Modal</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Filtrar</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
                 </div>
                 <!-- Corpo do modal -->
@@ -62,7 +62,7 @@
                             {!! Form::label('trimestre', 'Trimestre', ['class' => 'form-label']) !!}
                             {!! Form::select('trimestre', ['1' => '1º Trimestre', '2' => '2º Trimestre', '3' => '3º Trimestre', '4' => '4º Trimestre'], null, ['class' => 'form-control']) !!}
                         </div>
-                        {!! Form::submit('Enviar', ['class' => 'btn btn-primary']) !!}
+                        {!! Form::submit('Filtrar', ['class' => 'btn btn-primary']) !!}
                     {!! Form::close() !!}
                 </div>
             </div>

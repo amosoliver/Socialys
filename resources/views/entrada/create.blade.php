@@ -1,7 +1,5 @@
 @extends('layouts.app')
 
-
-<br><br>
 @section('main')
 
 <div class="container">
