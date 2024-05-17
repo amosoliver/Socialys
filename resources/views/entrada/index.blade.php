@@ -8,8 +8,9 @@
 @if (session('error'))
     <div class="alert alert-danger">
         {{ session('error') }}
-        @endif
     </div>
+@endif
+
 @section('main')
 
     <div class="container mt-3">
@@ -46,8 +47,9 @@
                 <button class="btn btn-primary mb-2">
                     <a href="{{ route('recibos.create') }}" class="text-white text-decoration-none">ADICIONAR</a>
                 </button>
-                <div class="table-responsive">
-                    <table id="table_entradas" class="table table-bordered table-striped">
+                <div class="table-responsive" style="max-height: 500px; overflow-y: auto;">
+                    <table id="table_saidas" class="table table-bordered table-striped">
+
                         <thead>
                             <tr>
                                 <th>N° DO RECIBO</th>
@@ -86,11 +88,12 @@
 
     </div>
     <script type="text/javascript">
-        $(document).ready( function () {
-            $('#table_entradas').DataTable();
-
-            $('#table_saidas').DataTable();
+        $(document).ready(function () {
+            $('#table_saidas').DataTable({
+                "scrollY": "400px", // Defina a altura desejada aqui
+                "scrollCollapse": true,
+                "paging": false // Desabilitar paginação para evitar scroll extra
+            });
         });
     </script>
-
 @endsection

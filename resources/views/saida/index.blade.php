@@ -1,4 +1,5 @@
 @extends('layouts.app')
+
 @if (session('success'))
     <div class="alert alert-success">
         {{ session('success') }}
@@ -10,6 +11,7 @@
         {{ session('error') }}
     </div>
 @endif
+
 @section('main')
     <div class="container mt-3">
         <div class="card bg-light">
@@ -43,7 +45,7 @@
                 <button class="btn btn-primary mb-2">
                     <a href="{{ route('recibos.saida.create') }}" class="text-white text-decoration-none">ADICIONAR</a>
                 </button>
-                <div class="table-responsive">
+                <div class="table-responsive" style="max-height: 500px; overflow-y: auto;">
                     <table id="table_saidas" class="table table-bordered table-striped">
                         <thead>
                             <tr>
@@ -64,12 +66,13 @@
                                     <td>{{ $reciboSaida->valor }}</td>
                                     <td>
                                         <button class="btn btn-outline-secondary">
-
-                                         <a href="{{ route('recibos.saida.edit', ['id' => $reciboSaida->id]) }}">EDITAR</a></button>
+                                            <a href="{{ route('recibos.saida.edit', ['id' => $reciboSaida->id]) }}">EDITAR</a>
+                                        </button>
                                     </td>
                                     <td>
-                                        <button class="btn btn-outline-danger"><a class="btn-outline-danger"
-                                                href="{{ route('recibos.saida.destroy', ['id' => $reciboSaida->id]) }}">EXCLUIR</a></button>
+                                        <button class="btn btn-outline-danger">
+                                            <a class="btn-outline-danger" href="{{ route('recibos.saida.destroy', ['id' => $reciboSaida->id]) }}">EXCLUIR</a>
+                                        </button>
                                     </td>
                                 </tr>
                             @endforeach
@@ -78,11 +81,14 @@
                 </div>
             </div>
         </div>
-
     </div>
     <script type="text/javascript">
         $(document).ready(function() {
-            $('#table_saidas').DataTable();
+            $('#table_saidas').DataTable({
+                "scrollY": "400px", // Defina a altura desejada aqui
+                "scrollCollapse": true,
+                "paging": false // Desabilitar paginação para evitar scroll extra
+            });
         });
     </script>
 @endsection
