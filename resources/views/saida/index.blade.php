@@ -16,18 +16,20 @@
             <div class="card-body">
                 <h5 class="card-title text-center">Filtrar Relatórios</h5>
                 <div class="row justify-content-center">
-                    <div class="col-10 col-md-6">
+                    <div class="col-md-6">
                         {!! Form::open(['route' => 'relatorio', 'method' => 'get']) !!}
-                        <div class="mb-3">
-                            {!! Form::label('dt_ini', 'Data de Início:', ['class' => 'form-label']) !!}
-                            {!! Form::date('dt_ini', null, ['class' => 'form-control']) !!}
-                        </div>
-                        <div class="mb-3">
-                            {!! Form::label('dt_fim', 'Data de Fim:', ['class' => 'form-label']) !!}
-                            {!! Form::date('dt_fim', null, ['class' => 'form-control']) !!}
-                        </div>
-                        <div class="text-center">
-                            {!! Form::button('Gerar Relatório', ['class' => 'btn btn-success', 'type' => 'submit']) !!}
+                        <div class="row align-items-end"> <!-- Use align-items-end para alinhar os itens na parte inferior -->
+                            <div class="col-md-4 mb-3">
+                                {!! Form::label('dt_ini', 'Data de Início:', ['class' => 'form-label']) !!}
+                                {!! Form::date('dt_ini', null, ['class' => 'form-control']) !!}
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                {!! Form::label('dt_fim', 'Data de Fim:', ['class' => 'form-label']) !!}
+                                {!! Form::date('dt_fim', null, ['class' => 'form-control']) !!}
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                {!! Form::button('Gerar Relatório', ['class' => 'btn btn-success', 'type' => 'submit']) !!}
+                            </div>
                         </div>
                         {!! Form::close() !!}
                     </div>
