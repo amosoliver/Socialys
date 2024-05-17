@@ -63,8 +63,9 @@
                                     <td>{{ $reciboSaida->nome }}</td>
                                     <td>{{ $reciboSaida->valor }}</td>
                                     <td>
-                                        href="{{ route('recibos.saida.edit', ['id' => $reciboSaida->id]) }}">EDITAR</a></button>
                                         <button class="btn btn-outline-secondary">
+
+                                         <a href="{{ route('recibos.saida.edit', ['id' => $reciboSaida->id]) }}">EDITAR</a></button>
                                     </td>
                                     <td>
                                         <button class="btn btn-outline-danger"><a class="btn-outline-danger"
