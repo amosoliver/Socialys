@@ -12,7 +12,7 @@
                     <a href="{{ route('literaturas.create') }}" class="text-white text-decoration-none">ADICIONAR</a>
                 </button>
                 <div class="table-responsive">
-                    <table class="table table-bordered table-striped">
+                    <table id= "datatable" class="table table-bordered table-striped">
                         <thead>
                             <tr>
                                 <th>CONGREGAÇÃO</th>
@@ -68,5 +68,9 @@
             </div>
         </div>
     </div>
-
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('#datatable').DataTable();
+        });
+    </script>
 @endsection
