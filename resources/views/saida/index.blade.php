@@ -11,7 +11,6 @@
     </div>
 @endif
 @section('main')
-
     <div class="container mt-3">
         <div class="card bg-light">
             <div class="card-body">
@@ -35,7 +34,6 @@
                 </div>
             </div>
         </div>
-
 
         <div class="row mt-4">
             <div class="col-12">
@@ -80,9 +78,8 @@
 
     </div>
     <script type="text/javascript">
-        $(document).ready( function () {
+        $(document).ready(function() {
             $('#table_saidas').DataTable();
         });
     </script>
-
 @endsection

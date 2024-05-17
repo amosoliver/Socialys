@@ -404,6 +404,23 @@
 
     </div>
 
+    <button id="save-pdf" class="no-print">Salvar como PDF</button>
+
+    <script>
+        document.getElementById('save-pdf').addEventListener('click', function () {
+            const { jsPDF } = window.jspdf;
+            const doc = new jsPDF();
+
+            doc.html(document.querySelector('.conteudo'), {
+                callback: function (doc) {
+                    doc.save('relatorio.pdf');
+                },
+                x: 10,
+                y: 10
+            });
+        });
+    </script>
+
 </body>
 
 </html>

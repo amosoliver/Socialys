@@ -37,7 +37,7 @@ Route::middleware(['auth', 'check.user'])->group(function () {
     Route::get('congregacao/index', [CongregacaoController::class, 'index'])->name('congregacaos.index');
     Route::get('congregacao/destroy/{id}', [CongregacaoController::class, 'destroy'])->name('congregacaos.destroy');
 
-    Route::get('recibo/saida/index', [ReciboSaidaController::class, 'index'])->name('recibo.saida.index');
+    Route::get('recibo/saida/index', [ReciboSaidaController::class, 'index'])->name('recibos.saida.index');
 
     Route::get('recibo/saida/create', [ReciboSaidaController::class, 'create'])->name('recibos.saida.create');
     Route::post('recibo/saida/store', [ReciboSaidaController::class, 'store'])->name('recibos.saida.store');
